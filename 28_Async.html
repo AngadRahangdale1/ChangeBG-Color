@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+   #start{
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    
+    #stop{
+        padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+    }
+
+</style>
+</head>
+
+<body>
+    <h1>Angad</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    // const sayDate = function(){
+    //     console.log("angad",Date.now());
+    // }
+    // const intervalId=setInterval(sayDate,1000,"hi")
+    // clearInterval(intervalId)
+
+    // generate random color to background
+    const randomColor = function(){
+        const hex="0123456789ABCDEF";
+        let color='#';
+        for(let i=0;i<6;i++){
+            color+=hex[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+    // console.log(randomColor()); // for checking purpose in console
+    let intervalId;
+    const startChangingColor=function(){
+
+        if(!intervalId){
+             intervalId = setInterval(strchangebgColor,1000)
+        }
+        // intervalId = setInterval(strchangebgColor,1000)
+
+        function strchangebgColor(){
+            document.body.style.backgroundColor=randomColor();
+        }
+
+    };
+    const stopChangingColor = function(){
+        clearInterval(intervalId);
+        intervalId=null;
+    };
+    document.querySelector('#start').addEventListener('click', startChangingColor);
+    document.querySelector('#stop').addEventListener('click',stopChangingColor);
+</script>
+</html>
